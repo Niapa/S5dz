@@ -134,12 +134,16 @@ double MinMax(double[] array)
     int posmin = 0;
     for (int i = 0; i < array.Length; i++)
     {
-        if (array[i] > array[posmax]) 
+        for (array[i] > array[posmax])
+        { 
         array[posmax] = array[i];
-        return array [posmax];
-        if (array[i] < array [posmin])
+        return posmax;
+        }
+        for (array[i] <= array[posmin])
+        {
         array[posmin] = array[i];
-        return array [posmin];
+        return posmin;
+        }
     }
 }
 
