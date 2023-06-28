@@ -97,15 +97,9 @@ int num = Sum(myArray);
 Console.WriteLine($"Сумма элементов на нечетных позициях равна: {num}.");
  
 38. Задайте массив вещественных чисел. 
- Найдите сумму между минимальным и максимальным значениями массива.
+ Найдите сумму минимального и максимального значений массива.
 
 
- ________
-
-
- Random rnd = new Random(); 
-        for (int i = 0; i < array.Length; i++)
-        array[i] = rnd.NextDouble(); 
  _____________________________________________________________________________
 */
 
@@ -116,49 +110,46 @@ int InputNum(string message)
     return int.Parse(Console.ReadLine()!);
 }
 
-int[] CreateArray(int size)
+double[] CreateArray(int size)
 {
-    return new int[size];
+    return new double[size];
 }
 
-double FillArray(double[] array)
+void FillArray(double[] array)
 {
     Random rnd = new Random();
     for (int i = 0; i < array.Length; i++)
         array[i] = rnd.NextDouble();
-        return array;
 }
 
-string PrintArray(double[] array)
+void PrintArray(double[] array)
 {
-    string res = String.Empty;
-    Console.Write("[");
     for (int i = 0; i < array.Length; i++)
-        res += array[i] + " ";
-    return res;
-    Console.WriteLine("]");
+    Console.Write($"{array[i]} ");      
 }
 
-void MinMax(double[] array)
+double MinMax(double[] array)
 {
-    double max = 0;
-    double min = 0;
+    int posmax = 0;
+    int posmin = 0;
     for (int i = 0; i < array.Length; i++)
     {
-        if (array[i] > max) max = i;
-        else if (array[i] < min) min = i;
+        if (array[i] > array[posmax]) 
+        array[posmax] = array[i];
+        return array [posmax];
+        if (array[i] < array [posmin])
+        array[posmin] = array[i];
+        return array [posmin];
     }
 }
 
-int size = InputNum("Введите размер массива: ");
+int num = InputNum("Введите размер массива: ");
 double[] arr = CreateArray(size);
-Console.WriteLine("Найти сумму макс. и мин. элементов массива вещественных чисел.");
-CreateArray(size);
 FillArray(arr);
 PrintArray(arr);
-double min = MinMax(arr);
-double max = MinMax(arr);
-Console.WriteLine($"Сумма макс. и мин. значений равна: {arr[max] + arr[min]}.");
+double minx = MinMax(arr);
+double maxx = MinMax(arr);
+Console.WriteLine($"Сумма макс. и мин. значений равна: {array [posmax]} + {array [posmin]}.");
 
 
 
