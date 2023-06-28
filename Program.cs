@@ -2,7 +2,7 @@
 
 34. Задайте массив, заполненный случайными положительными трехзначными числами.
 Напишите программу, кот. покажет количество четных чисел в массиве.
-
+*/
 
 int Input(string message)
 {
@@ -37,16 +37,18 @@ int EvenNumbered(int[] array)
     int count = 0;
     for (int i = 0; i < array.Length; i++)
         if (array[i] % 2 == 0)
-        count++;
+            count++;
         return count;
 }   
- 
+
 int size = Input("Введите размер массива: ");
 int [] myArray = CreateArray(size);
 FillArray(myArray);
 PrintArray(myArray);
-Console.WriteLine($"Количество четных чисел в массиве равно {EvenParse(arr)}"); 
+int count = EvenNumbered(myArray);
+Console.WriteLine($"Количество четных чисел в массиве равно: {count}."); 
 
+/*
 35. Задайте одномерный массив, заполненный случайными числами.
 Найдите сумму элементов, находящихся на нечетных позициях.
 
@@ -96,7 +98,7 @@ Console.WriteLine($"Сумма элементов на нечетных пози
 
 38. Задайте массив вещественных чисел. 
  Найдите сумму между минимальным и максимальным значениями массива.
-*/
+
 
 int InputNum(string message)
 {
@@ -145,5 +147,6 @@ FillArray(arr);
 PrintArray(arr);
 MinMax(int[] arr);
 Console.WriteLine($"Сумма макс и мин значений равна: {arr[max] - arr[min]}");
+*/
 
 
