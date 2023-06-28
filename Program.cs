@@ -2,6 +2,7 @@
 
 34. Задайте массив, заполненный случайными положительными трехзначными числами.
 Напишите программу, кот. покажет количество четных чисел в массиве.
+_________________________________________________________________________________
 
 
 int Input(string message)
@@ -51,7 +52,8 @@ Console.WriteLine($"Количество четных чисел в массив
 
 35. Задайте одномерный массив, заполненный случайными числами.
 Найдите сумму элементов, находящихся на нечетных позициях.
-*/
+____________________________________________________________________________
+
 
 int InputNum(string message)
 {
@@ -93,17 +95,19 @@ string res = PrintArray(myArray);
 Console.WriteLine(res);
 int num = Sum(myArray);
 Console.WriteLine($"Сумма элементов на нечетных позициях равна: {num}.");
-
-/*
-
-int size = Input("Введите размер массива: ");
-int [] myArray = CreateArray(size);
-FillArray(myArray);
-PrintArray(myArray);
-int count = EvenNumbered(myArray);
-Console.WriteLine($"Количество четных чисел в массиве равно: {count}."); 
+ 
 38. Задайте массив вещественных чисел. 
  Найдите сумму между минимальным и максимальным значениями массива.
+
+
+ ________
+
+
+ Random rnd = new Random(); 
+        for (int i = 0; i < array.Length; i++)
+        array[i] = rnd.NextDouble(); 
+ _____________________________________________________________________________
+*/
 
 
 int InputNum(string message)
@@ -112,19 +116,20 @@ int InputNum(string message)
     return int.Parse(Console.ReadLine()!);
 }
 
-double[] CreateArray(int size)
+int[] CreateArray(int size)
 {
     return new int[size];
 }
 
-void FillArray(double[] array)
+double FillArray(double[] array)
 {
-    Random rnd = new Random(); 
+    Random rnd = new Random();
     for (int i = 0; i < array.Length; i++)
-        array[i] = rnd.Next(); 
+        array[i] = rnd.NextDouble();
+        return array;
 }
 
-string PrintArray(int[] array)
+string PrintArray(double[] array)
 {
     string res = String.Empty;
     Console.Write("[");
@@ -134,25 +139,32 @@ string PrintArray(int[] array)
     Console.WriteLine("]");
 }
 
-void MinMax(int[] array)
+void MinMax(double[] array)
 {
-int max = 0;
-int min = 0;
-
-    for (int i = 0; i < arr.Length; i++)
+    double max = 0;
+    double min = 0;
+    for (int i = 0; i < array.Length; i++)
     {
-        if (arr[i] > max) max = i;
-        else if (arr[i] < min) min = i;
+        if (array[i] > max) max = i;
+        else if (array[i] < min) min = i;
     }
 }
 
-Console.WriteLine("Найти сумму макс и мин элементов массива вещественных чисел.");
 int size = InputNum("Введите размер массива: ");
+double[] arr = CreateArray(size);
+Console.WriteLine("Найти сумму макс. и мин. элементов массива вещественных чисел.");
 CreateArray(size);
 FillArray(arr);
 PrintArray(arr);
-MinMax(int[] arr);
-Console.WriteLine($"Сумма макс и мин значений равна: {arr[max] - arr[min]}");
-*/
+double min = MinMax(arr);
+double max = MinMax(arr);
+Console.WriteLine($"Сумма макс. и мин. значений равна: {arr[max] + arr[min]}.");
+
+
+
+
+
+
+
 
 
