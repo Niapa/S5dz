@@ -2,7 +2,7 @@
 
 34. Задайте массив, заполненный случайными положительными трехзначными числами.
 Напишите программу, кот. покажет количество четных чисел в массиве.
-*/
+
 
 int Input(string message)
 {
@@ -48,10 +48,10 @@ PrintArray(myArray);
 int count = EvenNumbered(myArray);
 Console.WriteLine($"Количество четных чисел в массиве равно: {count}."); 
 
-/*
+
 35. Задайте одномерный массив, заполненный случайными числами.
 Найдите сумму элементов, находящихся на нечетных позициях.
-
+*/
 
 int InputNum(string message)
 {
@@ -79,23 +79,29 @@ string PrintArray(int[] array)
     return res;
 }
 
-int[] Sum(int [] array)
+int Sum(int [] array)
 {
-    int res = 0;
-    for (int i = 0; i < length / 2; i+=2)
-    res += arr[i];
-    return res;
+    int num = 0;
+    for (int i = 1; i < array.Length; i+=2)
+    num += array[i];
+    return num;
 }
 int size = InputNum("Введите размер массива: ");
-int[] myArray = CreateArray(size);
+int [] myArray = CreateArray(size);
 FillArray(myArray);
-string txt = PrintArray(myArray);
-Console.WriteLine(txt);
+string res = PrintArray(myArray);
+Console.WriteLine(res);
+int num = Sum(myArray);
+Console.WriteLine($"Сумма элементов на нечетных позициях равна: {num}.");
 
-int[] newArray = MultPairs(myArray);
-txt = PrintArray(newArray);
-Console.WriteLine($"Сумма элементов на нечетных позициях равна: "+{res});
+/*
 
+int size = Input("Введите размер массива: ");
+int [] myArray = CreateArray(size);
+FillArray(myArray);
+PrintArray(myArray);
+int count = EvenNumbered(myArray);
+Console.WriteLine($"Количество четных чисел в массиве равно: {count}."); 
 38. Задайте массив вещественных чисел. 
  Найдите сумму между минимальным и максимальным значениями массива.
 
