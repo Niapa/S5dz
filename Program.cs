@@ -132,14 +132,14 @@ double MinMax(double[] array)
 {
     int posmax = 0;
     int posmin = 0;
-    for (int i = 0; i < array.Length; i++)
+    for (int i = 1; i < array.Length; i++)
     {
-        for (array[i] > array[posmax])
+        if (array[i] > array[posmax])
         { 
         array[posmax] = array[i];
         return posmax;
         }
-        for (array[i] <= array[posmin])
+        if (array[i] <= array[posmin])
         {
         array[posmin] = array[i];
         return posmin;
@@ -148,12 +148,12 @@ double MinMax(double[] array)
 }
 
 int num = InputNum("Введите размер массива: ");
-double[] arr = CreateArray(size);
+double[] arr = CreateArray(num);
 FillArray(arr);
 PrintArray(arr);
 double minx = MinMax(arr);
 double maxx = MinMax(arr);
-Console.WriteLine($"Сумма макс. и мин. значений равна: {array [posmax]} + {array [posmin]}.");
+Console.WriteLine($"Сумма макс. и мин. значений равна: {arr [maxx]} + {arr [minx]}.");
 
 
 
