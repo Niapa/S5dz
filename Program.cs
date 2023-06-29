@@ -137,7 +137,7 @@ double MinMax(double[] array)
         if (array[i] > posmax) posmax =array[i];             
         else if (array[i] <= posmin) posmin = array[i];
     }
-        return MathRound(posmax-posmin, 2); 
+        return Math.Round(posmax-posmin, 2); 
 }
 
 
