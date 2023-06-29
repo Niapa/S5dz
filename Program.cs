@@ -97,7 +97,7 @@ int num = Sum(myArray);
 Console.WriteLine($"Сумма элементов на нечетных позициях равна: {num}.");
  
 38. Задайте массив вещественных чисел. 
- Найдите сумму минимального и максимального значений массива.
+ Найдите разность минимального и максимального значений массива.
 
 
  _____________________________________________________________________________
@@ -130,30 +130,23 @@ void PrintArray(double[] array)
 
 double MinMax(double[] array)
 {
-    int posmax = 0;
-    int posmin = 0;
+    double posmax = array[0];
+    double posmin = array[0];
     for (int i = 1; i < array.Length; i++)
     {
-        if (array[i] > array[posmax])
-        { 
-        array[posmax] = array[i];
-        return posmax;
-        }
-        if (array[i] <= array[posmin])
-        {
-        array[posmin] = array[i];
-        return posmin;
-        }
+        if (array[i] > posmax) posmax =array[i];             
+        else if (array[i] <= posmin) posmin = array[i];
     }
+        return MathRound(posmax-posmin, 2); 
 }
+
 
 int num = InputNum("Введите размер массива: ");
 double[] arr = CreateArray(num);
 FillArray(arr);
 PrintArray(arr);
-double minx = MinMax(arr);
-double maxx = MinMax(arr);
-Console.WriteLine($"Сумма макс. и мин. значений равна: {arr [maxx]} + {arr [minx]}.");
+double diff = MinMax(arr);
+Console.WriteLine($"Разность макс. и мин. значений равна: {diff}.");
 
 
 
